@@ -25,5 +25,6 @@ public class Button {
         return button;
     }
     public Button(){
+        thangthinunglon;
     }
 }
