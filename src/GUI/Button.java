@@ -6,10 +6,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class Button {
-    public static Font customFont = loadCustomFont("Fonts/House_Of_Terror.ttf");
-    public static Font loadCustomFont (String fontPath){
+    public static Font customButtonFont = loadCustomFont("Fonts/House_Of_Terror.ttf",30);
+    public static Font loadCustomFont (String fontPath,int size){
         try {
-            return Font.createFont(Font.TRUETYPE_FONT, new File(fontPath)).deriveFont(Font.PLAIN, 30);
+            return Font.createFont(Font.TRUETYPE_FONT, new File(fontPath)).deriveFont(Font.PLAIN, size);
         } catch (FontFormatException | IOException e) {
             e.printStackTrace();
             return null;
@@ -25,6 +25,5 @@ public class Button {
         return button;
     }
     public Button(){
-        thangthinunglon;
     }
 }

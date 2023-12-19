@@ -1,14 +1,18 @@
 package GUI;
 
+import GameMode.EasyMode;
+import GameMode.HardMode;
+import GameMode.NormalMode;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static GUI.Button.createStyledButton;
-import static GUI.Button.customFont;
+import static GUI.Button.*;
 
 public class MenuMode extends JFrame {
+    public Font LabelFont = loadCustomFont("Fonts/House_Of_Terror.ttf",60);
     public MenuMode(){
         innitializeMode();
     }
@@ -18,20 +22,62 @@ public class MenuMode extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1536, 900);
         setResizable(false);
-        ImageIcon image = new ImageIcon("Image/image/MainMenu.png");
-        JLabel label = new JLabel();
-        label.setIcon(image);
+        JLabel label1= new JLabel();
+        label1.setText("Choose your game mode");
+        label1.setFont(LabelFont);
         setLayout(null);
-        label.setBounds(0, 0, 1536, 900);
-        add(label);
-        JButton Easybutton = createStyledButton("Easy", customFont);
-        JButton Normalbutton = createStyledButton("Normal", customFont);
-        JButton Hardbutton = createStyledButton("Hard", customFont);
-        JButton Backbutton=createStyledButton("Back",customFont);
-        Easybutton.setBounds(450, 675, 150, 50);
-        Normalbutton.setBounds(700, 675, 150, 50);
-        Hardbutton.setBounds(950, 675, 150, 50);
-        Backbutton.setBounds(50,50,150,50);
+        label1.setBounds(500,300,600,200);
+        add(label1);
+        ImageIcon image = new ImageIcon("Image/background/ModeMenu.png");
+        JLabel label2 = new JLabel();
+        label2.setIcon(image);
+        setLayout(null);
+        label2.setBounds(0, 0, 1536, 900);
+        add(label2);
+        JButton Easybutton = createStyledButton("Easy", customButtonFont);
+        JButton Normalbutton = createStyledButton("Normal", customButtonFont);
+        JButton Hardbutton = createStyledButton("Hard", customButtonFont);
+        JButton Backbutton=createStyledButton("Back",customButtonFont);
+        Easybutton.setBounds(450, 500, 150, 65);
+        Easybutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                try {
+                    EasyMode easyMode=new EasyMode();
+                }catch (Exception x)
+                {
+                    x.printStackTrace();
+                }
+            }
+        });
+        Normalbutton.setBounds(700, 500, 150, 65);
+        Normalbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                try {
+                    NormalMode normalMode = new NormalMode();
+                }catch (Exception x)
+                {
+                    x.printStackTrace();
+                }
+            }
+        });
+        Hardbutton.setBounds(950, 500, 150, 65);
+        Hardbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                try {
+                    HardMode hardMode=new HardMode();
+                }catch (Exception x)
+                {
+                    x.printStackTrace();
+                }
+            }
+        });
+        Backbutton.setBounds(50,50,150,65);
         Backbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -1,3 +1,5 @@
+package Game;
+
 import GUI.Menu;
 
 import javax.swing.*;

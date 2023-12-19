@@ -3,8 +3,8 @@ package GUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static GUI.Button.createStyledButton;
-import static GUI.Button.customFont;
+
+import static GUI.Button.*;
 
 public class PlantsMenu extends JFrame {
     PlantsMenu() {
@@ -16,14 +16,14 @@ public class PlantsMenu extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1600, 900);
         setResizable(false);
-        ImageIcon image = new ImageIcon("Image/image/PlantsMenu.jpg");
+        ImageIcon image = new ImageIcon("Image/background/PlantsMenu.jpg");
         JLabel label = new JLabel();
         label.setIcon(image);
         setLayout(null);
         label.setBounds(0, 0, 1600, 900);
         add(label);
-        JButton Backbutton=createStyledButton("Back",customFont);
-        Backbutton.setBounds(50,50,150,50);
+        JButton Backbutton=createStyledButton("Back",customButtonFont);
+        Backbutton.setBounds(50,50,150,65);
         Backbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

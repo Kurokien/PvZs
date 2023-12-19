@@ -7,10 +7,10 @@ import java.io.IOException;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import static GUI.Button.createStyledButton;
-import static GUI.Button.customFont;
+import static GUI.Button.*;
 
 public class Menu extends JFrame {
+    public Font LabelMenuFont = loadCustomFont("Fonts/House_Of_Terror.ttf",60);
     private String name;
     private JPanel cardPanel;
     private CardLayout cardLayout;
@@ -23,21 +23,24 @@ public class Menu extends JFrame {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setSize(1600, 900);
             setResizable(false);
-            ImageIcon image = new ImageIcon("Image/image/MainMenu.png");
+            ImageIcon image = new ImageIcon("Image/background/MainMenu.png");
+            JLabel label1= new JLabel();
+            label1.setText("Welcome to PvZs");
+            label1.setFont(LabelMenuFont);
+            setLayout(null);
+            label1.setBounds(550,100,600,100);
+            add(label1);
             JLabel label = new JLabel();
             label.setIcon(image);
             setLayout(null);
             label.setBounds(0, 0, 1536, 900);
             add(label);
-            cardPanel = new JPanel();
-            cardLayout = new CardLayout();
-            cardPanel.setLayout(cardLayout);
-            JButton NGbutton = createStyledButton("New game", customFont);
-            JButton Pbutton = createStyledButton("Plants", customFont);
-            JButton Zbutton = createStyledButton("Zombies", customFont);
-            JButton Ebutton = createStyledButton("Exit", customFont);
+            JButton NGbutton = createStyledButton("New game", customButtonFont);
+            JButton Pbutton = createStyledButton("Plants", customButtonFont);
+            JButton Zbutton = createStyledButton("Zombies", customButtonFont);
+            JButton Ebutton = createStyledButton("Exit", customButtonFont);
             setLayout(null);
-            NGbutton.setBounds(300, 675, 150, 50);
+            NGbutton.setBounds(300, 675, 150, 65);
             NGbutton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -48,7 +51,7 @@ public class Menu extends JFrame {
                     }catch (Exception x){x.printStackTrace();}
                 }
             });
-            Pbutton.setBounds(550, 675, 150, 50);
+            Pbutton.setBounds(550, 675, 150, 65);
             Pbutton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -59,7 +62,7 @@ public class Menu extends JFrame {
                     }catch(Exception x){x.printStackTrace();}
                 }
             });
-            Zbutton.setBounds(800, 675, 150, 50);
+            Zbutton.setBounds(800, 675, 150, 65);
             Zbutton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -70,7 +73,7 @@ public class Menu extends JFrame {
                     }catch(Exception x){x.printStackTrace();}
                 }
             });
-            Ebutton.setBounds(1050, 675, 150, 50);
+            Ebutton.setBounds(1050, 675, 150, 65);
             Ebutton.addActionListener(e->System.exit(0));
             add(NGbutton);
             add(Pbutton);
