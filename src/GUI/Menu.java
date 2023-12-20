@@ -4,19 +4,36 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
-import javax.swing.border.Border;
 
 import static GUI.Button.*;
 
-public class Menu extends JFrame {
+public class Menu extends JFrame  {
     public Font LabelMenuFont = loadCustomFont("Fonts/House_Of_Terror.ttf",60);
+    private Button buttonHandlerMenu=new Button();
     private String name;
-    private JPanel cardPanel;
-    private CardLayout cardLayout;
-
+    private Clip clip;
+    public void MenuMusicStart() {
+        try {
+            File soundMenuFile = new File("Sound/MenuSound.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundMenuFile);
+            clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+        }
+    }
+    private void stopMusic() {
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+        }
+    }
     public Menu() {
         innitializeMenu();
+        MenuMusicStart();
     }
     public void innitializeMenu () {
             setTitle("Plants VS Zombies");
@@ -45,6 +62,8 @@ public class Menu extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
+                        buttonHandlerMenu.ButtonClickSound();
+                        stopMusic();
                         dispose();
                         MenuMode menuMode = new MenuMode();
                         menuMode.setVisible(true);
@@ -56,6 +75,8 @@ public class Menu extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
+                        buttonHandlerMenu.ButtonClickSound();
+                        stopMusic();
                         dispose();
                         PlantsMenu plantsMenu = new PlantsMenu();
                         plantsMenu.setVisible(true);
@@ -67,6 +88,8 @@ public class Menu extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
+                        buttonHandlerMenu.ButtonClickSound();
+                        stopMusic();
                         dispose();
                         ZombiesMenu zombiesMenu = new ZombiesMenu();
                         zombiesMenu.setVisible(true);

@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import static GUI.Button.*;
 
 public class ZombiesMenu extends JFrame {
+    private Button buttonHandlerZombies=new Button();
     ZombiesMenu() {
         innitializeZombiesMenu();
     }
@@ -27,8 +28,9 @@ public class ZombiesMenu extends JFrame {
         Backbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 try {
+                    dispose();
+                    buttonHandlerZombies.ButtonClickSound();
                     Menu menu = new Menu();
                     menu.setVisible(true);
                 }catch (Exception x)

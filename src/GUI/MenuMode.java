@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import static GUI.Button.*;
 
 public class MenuMode extends JFrame {
+    private Button buttonHandlerMode= new Button();
     public Font LabelFont = loadCustomFont("Fonts/House_Of_Terror.ttf",60);
     public MenuMode(){
         innitializeMode();
@@ -44,6 +45,7 @@ public class MenuMode extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 try {
+                    buttonHandlerMode.ButtonClickSound();
                     EasyMode easyMode=new EasyMode();
                 }catch (Exception x)
                 {
@@ -55,8 +57,10 @@ public class MenuMode extends JFrame {
         Normalbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+
                 try {
+                    buttonHandlerMode.ButtonClickSound();
+                    dispose();
                     NormalMode normalMode = new NormalMode();
                 }catch (Exception x)
                 {
@@ -68,8 +72,9 @@ public class MenuMode extends JFrame {
         Hardbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 try {
+                    buttonHandlerMode.ButtonClickSound();
+                    dispose();
                     HardMode hardMode=new HardMode();
                 }catch (Exception x)
                 {
@@ -77,12 +82,13 @@ public class MenuMode extends JFrame {
                 }
             }
         });
-        Backbutton.setBounds(50,50,150,65);
+        Backbutton.setBounds(100,50,150,65);
         Backbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 try {
+                    buttonHandlerMode.ButtonClickSound();
+                    dispose();
                     Menu menu = new Menu();
                     menu.setVisible(true);
                 }catch (Exception x)

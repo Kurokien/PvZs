@@ -22,7 +22,7 @@ public class GamePanel extends JFrame {
         JLabel label = new JLabel();
         label.setIcon(image);
         setLayout(null);
-        label.setBounds(0, 0, 1600, 900);
+        label.setBounds(1, 0, 1600, 900);
         add(label);
     }
 }
