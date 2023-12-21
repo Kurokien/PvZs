@@ -1,16 +1,21 @@
 package GUI;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import static GUI.Music.*;
 
 import static GUI.Button.createStyledButton;
 import static GUI.Button.customButtonFont;
 import javax.swing.*;
 
 public class GamePanel extends JFrame {
+    private Clip clip;
     public GamePanel(){
         innitializeGamePanel();
+        GamePanelMusic();
     };
     public void innitializeGamePanel()
     {
@@ -25,4 +30,9 @@ public class GamePanel extends JFrame {
         label.setBounds(1, 0, 1600, 900);
         add(label);
     }
+    public void GamePanelMusic() {
+        File soundIngameFile = new File("Sound/IngameSound.wav");
+        MusicStart(soundIngameFile);
+    }
+
 }

@@ -3,13 +3,18 @@ package GUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.File;
 import static GUI.Button.*;
-
+import static GUI.Music.*;
 public class ZombiesMenu extends JFrame {
     private Button buttonHandlerZombies=new Button();
     ZombiesMenu() {
         innitializeZombiesMenu();
+        ZombiesMenuMusic();
+    }
+    public void ZombiesMenuMusic(){
+        File zombiesMenuSound= new File("Sound/ZombiesMenuSound.wav");
+        MusicStart(zombiesMenuSound);
     }
     public void innitializeZombiesMenu()
     {
@@ -29,6 +34,7 @@ public class ZombiesMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    MusicStop();
                     dispose();
                     buttonHandlerZombies.ButtonClickSound();
                     Menu menu = new Menu();

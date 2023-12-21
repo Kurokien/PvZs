@@ -43,8 +43,8 @@ public class MenuMode extends JFrame {
         Easybutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 try {
+                    dispose();
                     buttonHandlerMode.ButtonClickSound();
                     EasyMode easyMode=new EasyMode();
                 }catch (Exception x)
@@ -57,7 +57,6 @@ public class MenuMode extends JFrame {
         Normalbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 try {
                     buttonHandlerMode.ButtonClickSound();
                     dispose();

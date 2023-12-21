@@ -4,11 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
-
+import static GUI.Music.*;
 import static GUI.Button.*;
 
 public class Menu extends JFrame  {
@@ -17,19 +15,8 @@ public class Menu extends JFrame  {
     private String name;
     private Clip clip;
     public void MenuMusicStart() {
-        try {
-            File soundMenuFile = new File("Sound/MenuSound.wav");
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundMenuFile);
-            clip = AudioSystem.getClip();
-            clip.open(audioStream);
-            clip.start();
-        } catch (Exception e) {
-        }
-    }
-    private void stopMusic() {
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
-        }
+        File soundMenuFile = new File("Sound/MenuSound.wav");
+        MusicStart(soundMenuFile);
     }
     public Menu() {
         innitializeMenu();
@@ -63,7 +50,7 @@ public class Menu extends JFrame  {
                 public void actionPerformed(ActionEvent e) {
                     try {
                         buttonHandlerMenu.ButtonClickSound();
-                        stopMusic();
+                        MusicStop();
                         dispose();
                         MenuMode menuMode = new MenuMode();
                         menuMode.setVisible(true);
@@ -76,7 +63,7 @@ public class Menu extends JFrame  {
                 public void actionPerformed(ActionEvent e) {
                     try {
                         buttonHandlerMenu.ButtonClickSound();
-                        stopMusic();
+                        MusicStop();
                         dispose();
                         PlantsMenu plantsMenu = new PlantsMenu();
                         plantsMenu.setVisible(true);
@@ -89,7 +76,7 @@ public class Menu extends JFrame  {
                 public void actionPerformed(ActionEvent e) {
                     try {
                         buttonHandlerMenu.ButtonClickSound();
-                        stopMusic();
+                        MusicStop();
                         dispose();
                         ZombiesMenu zombiesMenu = new ZombiesMenu();
                         zombiesMenu.setVisible(true);
