@@ -1,12 +1,11 @@
 package Game;
 
-import GUI.Menu;
-
-import javax.swing.*;
+import GUI.GameEnd.GameOverNotification;
+import GUI.GameEnd.GameWinnerNotification;
 
 public class Game {
     public static void main(String[] args) {
 
-        Menu menu =new Menu();
+        GameWinnerNotification gameWinnerNotification=new GameWinnerNotification();
     }
 }

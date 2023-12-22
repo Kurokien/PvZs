@@ -1,4 +1,4 @@
-package GUI;
+package GUI.GameSFX;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;

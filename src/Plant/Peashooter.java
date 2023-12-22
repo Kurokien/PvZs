@@ -1,5 +1,5 @@
 /*Still Working */
-package Plant;
+/*package Plant;
 
 import java.awt.event.ActionEvent;
 
@@ -16,7 +16,7 @@ public class Peashooter extends Plant {
         shootTimer = new Timer(1500, (ActionEvent Shot) -> {
             if (gp.laneZombies.get(y).size() > 0) {
                 gp.lanePeas.get(y).add(new Pea(gp, y, 103 + this.x * 100));/* Cong thuc */
-            }
+         /*   }
         });
         shootTimer.start();
     }
@@ -26,4 +26,4 @@ public class Peashooter extends Plant {
         shootTimer.stop();
     }
 
-}
+}*/

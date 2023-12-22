@@ -1,15 +1,8 @@
 package GUI;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-import static GUI.Music.*;
-
-import static GUI.Button.createStyledButton;
-import static GUI.Button.customButtonFont;
-import javax.swing.*;
+import static GUI.GameSFX.Music.*;
 
 public class GamePanel extends JFrame {
     private Clip clip;
@@ -27,7 +20,7 @@ public class GamePanel extends JFrame {
         JLabel label = new JLabel();
         label.setIcon(image);
         setLayout(null);
-        label.setBounds(1, 0, 1600, 900);
+        label.setBounds(0, 0, 1600, 900);
         add(label);
     }
     public void GamePanelMusic() {
