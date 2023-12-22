@@ -11,15 +11,15 @@ where players use plants to defend their home from zombies.
 /*
 package InputForGame;
 
-import view.Game.Game;
+import view.Game.Game.Game.Game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class MyKeyBoardListener implements KeyListener {
-    private Game game;
+    private Game.Game game;
 
-    public MyKeyBoardListener(Game game) {
+    public MyKeyBoardListener(Game.Game game) {
         this.game = game;
     }
 

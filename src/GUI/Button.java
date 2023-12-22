@@ -4,15 +4,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import javax.sound.sampled.*;
 
 public class Button {
-    public static Font customFont = loadCustomFont("Fonts/House_Of_Terror.ttf");
-    public static Font loadCustomFont (String fontPath){
+    private Clip clip;
+    public static Font customButtonFont = loadCustomFont("Fonts/House_Of_Terror.ttf",30);
+    public static Font loadCustomFont (String fontPath,int size){
         try {
-            return Font.createFont(Font.TRUETYPE_FONT, new File(fontPath)).deriveFont(Font.PLAIN, 30);
+            return Font.createFont(Font.TRUETYPE_FONT, new File(fontPath)).deriveFont(Font.PLAIN, size);
         } catch (FontFormatException | IOException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+    public void  ButtonClickSound() {
+        try {
+            File ClickSound = new File("Sound/click.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(ClickSound);
+            clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
     public static JButton createStyledButton (String text, Font font){
@@ -25,6 +38,5 @@ public class Button {
         return button;
     }
     public Button(){
-        thangthinunglon;
     }
 }
